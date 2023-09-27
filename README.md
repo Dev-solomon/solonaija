@@ -1,7 +1,5 @@
-# Add this for facebook, instagram, youtube and other icons 
-fontawesome link add to html to activate all the symbols such as instagram, facebook...
+This is a Movie Database site for users to download movies to watch.
 
-https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+This is built using python(flask) and is in continuous development stage.
 
-
-for index.html, style.css and main.js follow up with the video.
+<!-- The database is mysql and cloud storage at planetscale.com -->
