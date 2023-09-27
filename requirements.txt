@@ -6,3 +6,6 @@ gunicorn
 sqlalchemy
 pymysql
 flask-bcrypt
+jwt
+flask_cors
+termcolor

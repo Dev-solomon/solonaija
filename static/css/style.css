@@ -357,7 +357,7 @@ header .navbar ul li:last-child{
     z-index: 1;
 }
 .navbar-light .navbar-toggler-icon{
-    background: url(images/menu.png) no-repeat scroll center center;
+    background: url(../images/menu.png) no-repeat scroll center center;
 }
 .search-toggle:hover, header .navbar ul li.menu-item a:hover{
     color: #e50914 !important;
@@ -772,13 +772,13 @@ header#main-header.menu-sticky{
     z-index: 1;
 }
 #home-slider .slick-bg.s-bg-1{
-    background-image: url(images/slider/slider1.jpg);
+    background-image: url(../images/slider/slider1.jpg);
 }
 #home-slider .slick-bg.s-bg-2{
-    background-image: url(images/slider/slider2.jpg);
+    background-image: url(../images/slider/slider2.jpg);
 }
 #home-slider .slick-bg.s-bg-3{
-    background-image: url(images/slider/slider3.jpg);
+    background-image: url(../images/slider/slider3.jpg);
 }
 
 .slick-bg::before{
@@ -846,7 +846,7 @@ header#main-header.menu-sticky{
 }
 .big-title{
    font-family: 'Playfair Display', serif;
-   background: url(images/texure.jpg);
+   background: url(../images/texure.jpg);
    background-repeat: repeat-x;
    background-position: 100% 100%;
    color: transparent;
@@ -1670,7 +1670,7 @@ li.slide-item .block-description .parallax-ratting span{
     height: 100%;
     padding: 100px 0;
     position: relative;
-    background: url(images/parallax/avatar.jpg) center center;
+    background: url(../images/parallax/avatar.jpg) center center;
     background-size: cover;
     background-attachment: fixed ;
 }
