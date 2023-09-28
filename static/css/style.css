@@ -24,7 +24,7 @@ header#main-header{
     backdrop-filter: blur(10px);
 }
 header .navbar-light .navbar-brand img.logo{
-    width: 160px;
+    width: 200px;
 }
 header .navbar .menu-header-menu-container, header .navbar .menu-main-menu-container{
     display: inline-block;
@@ -547,7 +547,7 @@ header#main-header.menu-sticky{
 }
 @media (max-width:991px){
     header .navbar-light .navbar-brand img.logo{
-        width: 100px;
+        width: 200px;
     }
     .navbar-collapse{
         position: fixed;
@@ -806,10 +806,19 @@ header#main-header.menu-sticky{
     font-weight: 500;
 }
 .c-logo{
-    width: 130px;
+    width: 200px; 
 }
 
+.channel-logo-top{
+    border-left: 5px solid yellow;
+    background: transparent linear-gradient(270deg, rgba(11,1,2,0) 0%, yellow 100%); 
+    padding: 10px 10px 10px 15px;
+    width: 255px;
+    position: relative;
+    overflow : hidden;
+}
 .channel-logo{
+    float: right;
     border-left: 5px solid yellow;
     background: transparent linear-gradient(270deg, rgba(11,1,2,0) 0%, yellow 100%);
     padding: 10px 10px 10px 15px;

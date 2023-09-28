@@ -2,8 +2,8 @@ from flask import *
 # from database import *
 # from funcs import *
 # import jwt
-import datetime 
-import os
+# import datetime 
+# import os
 from flask_cors import CORS 
 from flask_bcrypt import Bcrypt
 # from termcolor import colored
@@ -15,7 +15,7 @@ CORS(app, support_credentials=True)
 
 # The HomePage
 @app.route('/')
-def home_template():
+def home_template(): 
     return render_template('index.html')
 
 
