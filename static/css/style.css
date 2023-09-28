@@ -835,8 +835,7 @@ header#main-header.menu-sticky{
     width: 50px;
     filter: invert(1);
 }
-.playbtn img:hover{
-    background: #;
+.playbtn img:hover{ 
     border-radius: 50%;
     filter: invert(0);
 }
