@@ -20,7 +20,7 @@ header#main-header{
     right: 0;
     text-align: center;
     z-index: 99;
-    background: rgba(20, 20, 20, 0.5) !important;
+    background: black !important;
     backdrop-filter: blur(10px);
 }
 header .navbar-light .navbar-brand img.logo{
@@ -38,7 +38,7 @@ a{
 }
 header .navbar ul.navbar-nav{
     display: block;
-    text-align: center;
+    text-align: start;
 }
 header .navbar ul li{
     list-style: none;
@@ -347,7 +347,7 @@ header .navbar ul li:last-child{
     visibility: hidden;
     position: absolute;
     top: 100%;
-    right: 15px;
+    right: 0;
     background: #191919;
     transform: translate(0,70px);
     transition: all 0.3s;
@@ -588,8 +588,7 @@ header#main-header.menu-sticky{
         display: none;
     }
     .navbar-brand{
-        padding: 0;
-        margin-right: 0;
+        padding: 0; 
     }
     .more-menu .iq-sub-dropdown{
         width: 90%;
@@ -678,7 +677,7 @@ header#main-header.menu-sticky{
     }
     .navbar ul{
         width: 100%;
-        background: #191919;
+        background: black;
     }
     header .navbar ul li a, header .navbar ul li.menu-item a{
         padding: 15px;

@@ -17,6 +17,14 @@ CORS(app, support_credentials=True)
 @app.route('/')
 def home_template(): 
     return render_template('index.html')
+#  The Movies Page
+@app.route('/movies')
+def movie_template(): 
+    return render_template('movies.html')
+# The movie specific display
+@app.route('/view')
+def view_template(): 
+    return render_template('view.html')
 
 
 

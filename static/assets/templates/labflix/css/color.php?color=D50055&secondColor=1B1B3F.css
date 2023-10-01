@@ -1,0 +1,194 @@
+
+
+.loader {
+    border-top: 4px solid #2192FF;
+}
+.hero__slider .slick-dots li.slick-active button {
+    background-color: #2192FF;
+}
+.video-btn .icon, .bg--base {
+    background-color: #2192FF;
+}
+.video-btn .icon::before, .video-btn .icon::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 74px;
+    background-color: #2192FF;
+    opacity: 0.15;
+    z-index: -10;
+}
+.video-btn .icon::before, .video-btn .icon::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 74px;
+    background-color: #2192FF;
+    opacity: 0.15;
+    z-index: -10;
+}
+.header .main-menu li a:hover, .header .main-menu li a:focus {
+    color: #2192FF;
+}
+.header .main-menu li .sub-menu {
+    background-color: #2192FF;
+    border-top: 2px solid #2192FF;
+}
+.header-search-form button {
+    background-color: #2192FF;
+}
+.dropdown-menu {
+    background-color: #2192FF;
+}
+.movie-slider-one .slick-arrow {
+    background-color: #2192FF;
+}
+.movie-card__thumb .icon {
+    color: #2192FF;
+}
+a:hover {
+    color: #2192FF;
+}
+.cmn-btn {
+    background-color: #2192FF;
+}
+.package-card__btn:hover {
+    color: #ffffff;
+    background-color: #2192FF;
+}
+.base--color {
+    color: #2192FF;
+}
+.list-group-item {
+    border: 1px dashed #2192FF69;
+}
+.social-links li a:hover {
+    background-color: #2192FF;
+    border-color: #2192FF;
+}
+.subscribe-form button {
+    background-color: #2192FF;
+}
+.links li a:hover {
+    color: #2192FF;
+}
+.subscription-clock > div {
+    background-color: #2192FF;
+}
+.table .thead-dark th {
+    background-color: #2192FF;
+    border-color: #2192FF;
+}
+.table {
+    border: 1px solid #2192FF;
+}
+.page-breadcrumb li:first-child::before {
+    content: "\f015";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #2192FF;
+    margin-right: 6px;
+}
+.cmn-btn:hover {
+    background-color: #2192FF;
+}
+.form-control:focus {
+    border-color: #2192FF;
+}
+.card-header {
+    background-color: black;
+    border-bottom: 1px solid #2192FF6e;
+}
+.package-card__icon i {
+    color: #2192FF;
+}
+.package-card__btn {
+    background-color: #2192FF;
+}
+.card {
+    border-color: black;
+    background-color: black;
+}
+
+
+.card-header {
+    background-color: black;
+}
+
+.card-body {
+    background-color: black !important;
+}
+.pagination .page-item {
+    background-color: black;
+}
+.input-group-text {
+    background-color: black;
+    border-color: black;
+}
+@media (max-width: 1199px) {
+    .header__bottom {
+        background-color: black;
+        padding: 15px 30px;
+    }
+}
+.movie-card__content {
+    padding: 20px;
+    background-color: black;
+}
+#preloader {
+    background: black;
+}
+.footer {
+    background-color: black;
+}
+.movie-small::after {
+    position: absolute;
+    content: attr(data-text);
+    top: 15px;
+    left: 30px;
+    background-color: #2192FF !important;
+    color: #fff;
+    font-size: 12px;
+    padding: 1px 6px;
+    border-radius: 0 3px 3px 0;
+    animation: pulse 1s infinite;
+}
+.movie-card::after {
+    position: absolute;
+    content: attr(data-text);
+    top: 5px;
+    right: 5px;
+    background-color: #2192FF !important;
+    color: #fff;
+    font-size: 13px;
+    padding: 2px 10px;
+    border-radius: 0 3px 3px 0;
+    animation: pulse 1s infinite;
+}
+.ads-close-btn{
+    background: #2192FF !important;
+}
+
+.custom--checkbox .checkbox--label::before{
+    border: 1px solid #2192FF !important;
+}
+.custom--checkbox .checkbox--input:checked~.checkbox--label::before{
+    background-color: #2192FF !important;
+}
+.table thead tr th{
+    background-color: #2192FF !important;
+    border-color: #2192FF !important;
+}
+.table tbody tr:last-child{
+    border-bottom: 1px solid #2192FF !important;
+}
+.loader-pre:after{
+    border: 6px solid #2192FF;
+    border-color: #2192FF transparent #2192FF transparent;
+}
