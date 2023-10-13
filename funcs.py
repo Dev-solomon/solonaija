@@ -59,24 +59,24 @@ def user_account():
 def upload_image():
   image = request.files['cover']
   if image.filename != '':
-      image.save(os.path.join('static/upload/', secure_filename(image.filename)))  
-      return render_template('admin/add-item.html', image_preview=f"../../static/upload/{image.filename}")
+      image.save(os.path.join('static/upload/', secure_filename(image.filename))) 
+      return image.filename
   return None
 
-ALLOWED_EXTENSIONS = ['mp4']
+# ALLOWED_EXTENSIONS = ['mp4']
 
-def allowed_file(filename):
-  return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+# def allowed_file(filename):
+#   return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 def upload_video():
-  if 'video' not in request.files:
+  if 'movie' not in request.files:
     return 'No video file found!'
-  video = request.files['video']
+  video = request.files['movie']
   if video.filename == '':
     return 'No video selected'
-  if video and allowed_file(video.filename):
-    video.save('static/videos/' + video.filename)
-    return render_template('admin/add-item.html', video_preview=video)
+  if video :
+    video.save(os.path.join('static/videos/', secure_filename(video.filename)))
+    return video.filename
 # -----------------------------------------------
 # Function to give Admins accessibility to panel
 # -----------------------------------------------

@@ -42,6 +42,12 @@ def login_user(data):
     for row in result.fetchall():  
         if row._mapping['email'] == data['email'] and  bcrypt.check_password_hash(row._mapping['pass'], data['password']): 
           return data['email']
-    if data['email'] == "ntiasolomon9@gmail.com" and data['password'] == "mypass":
+    if data['email'] == "ntiasolomon9@gmail.com" and data['password'] == "123":
         return 'admin'
     return None
+#------------------------------------------ 
+# add a new movie to database 
+# -----------------------------------------
+# def add_movie(image, video):
+#   with engine.connect() as conn:
+#     result = 

@@ -82,14 +82,9 @@ def manage_user():
 @check_ifadmin
 def new_item():
     if request.method == 'POST': 
-        pass 
-    # for file in os.listdir('static/upload'):
-    #     print(file)  
-    return render_template('admin/add-item.html')
-# -------------------------------------------
-@app.route('/admin/upload', methods=['POST'])
-def Upload():
-    return upload_image()
+        image = upload_image()
+        video = upload_video()  
+    return render_template('admin/add-item.html') 
 # Comments on users
 @app.route('/admin/comments')
 @check_ifadmin

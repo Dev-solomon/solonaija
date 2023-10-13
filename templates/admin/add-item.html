@@ -57,7 +57,7 @@
 
 				<!-- form -->
 				<div class="col-12">
-					<form action="/admin/upload" method="post" class="form" enctype="multipart/form-data">
+					<form action="/admin/item" method="post" class="form" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-12 col-md-5 form__cover">
 								<div class="row">
@@ -74,11 +74,8 @@
 										</div>
 									</div>
 								</div>
-							</div>
-						</form>
-						 <div class="col-12 col-md-7 form__content">
-							<form  action="/admin/item" method="post" class="form" enctype="multipart/form-data">
-							
+							</div> 
+						 <div class="col-12 col-md-7 form__content">  
 								<div class="row">
 									<div class="col-12">
 										<div class="form__group">
@@ -393,7 +390,7 @@
 									<div class="col-12 col-lg-6">
 										<div class="form__video">
 											<label id="movie1" for="form__video-upload">Upload video</label>
-											<input data-name="#movie1" id="form__video-upload" name="movie" class="form__video-upload" type="file" accept="video/mp4,video/x-m4v,video/*">
+											<input id="form__video-upload" name="movie" class="form__video-upload" type="file">
 										</div>
 									</div>
 
