@@ -45,7 +45,7 @@ body {
 body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  background-color: #131720;
+  background-color: black;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
 }
@@ -75,11 +75,7 @@ textarea,
 select {
   padding: 0;
   margin: 0;
-  border-radius: 0;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
+  border-radius: 0;   
   box-shadow: none;
   transition: 0.5s ease;
   transition-property: color, border-color;
@@ -1977,7 +1973,8 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  padding: 40px 0;
+  /* padding: 0px 0; */
+
 }
 .sign__form {
   background-color: #131720;
@@ -2074,73 +2071,19 @@ body::-webkit-scrollbar-thumb {
 .sign__group--checkbox {
   width: 100%;
   text-align: left;
-}
+} 
 .sign__group--checkbox input:not(:checked),
 .sign__group--checkbox input:checked {
-  position: absolute;
-  left: -9999px;
-}
-.sign__group--checkbox input:not(:checked) + label,
-.sign__group--checkbox input:checked + label {
-  font-size: 14px;
-  color: #e0e0e0;
-  font-weight: normal;
-  position: relative;
-  cursor: pointer;
-  padding-left: 35px;
-  line-height: 22px;
-  margin: 0;
-}
-.sign__group--checkbox input:not(:checked) + label a,
-.sign__group--checkbox input:checked + label a {
-  color: #2f80ed;
-}
-.sign__group--checkbox input:not(:checked) + label a:hover,
-.sign__group--checkbox input:checked + label a:hover {
-  color: #2f80ed;
-  text-decoration: underline;
-}
-.sign__group--checkbox input:not(:checked) + label:before,
-.sign__group--checkbox input:checked + label:before {
   content: '';
   position: absolute;
   left: 0;
   top: 0;
   width: 22px;
   height: 22px;
-  background-color: #151f30;
+  background-color: white;
   border: 1px solid transparent;
   border-radius: 8px;
-}
-.sign__group--checkbox input:not(:checked) + label:after,
-.sign__group--checkbox input:checked + label:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 22px;
-  height: 22px;
-  text-align: center;
-  transition: 0.5s;
-  background: url("../img/checkmark.svg") no-repeat center/12px auto;
-  border-radius: 8px;
-}
-.sign__group--checkbox input:not(:checked) + label:after {
-  opacity: 0;
-  transform: scale(0);
-}
-.sign__group--checkbox input:checked + label:after {
-  opacity: 1;
-  transform: scale(1);
-}
-.sign__group--checkbox label::-moz-selection {
-  background: transparent;
-  color: #e0e0e0;
-}
-.sign__group--checkbox label::selection {
-  background: transparent;
-  color: #e0e0e0;
-}
+}   
 .sign__btn {
   display: flex;
   flex-direction: row;
