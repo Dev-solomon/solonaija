@@ -2,10 +2,8 @@ from sqlalchemy import create_engine, text
 from flask import *
 from datetime import date
 from funcs import *
-from termcolor import colored
-from flask_bcrypt import Bcrypt
-from app import app
-bcrypt = Bcrypt(app)
+from termcolor import colored 
+from app import app, bcrypt
 # ----------------------------------------------------------
 # Connection string For Cloud connection to Database
 # ----------------------------------------------------------
