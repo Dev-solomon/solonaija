@@ -1,6 +1,6 @@
 from flask import *
-from database import *
-from funcs import *
+from source.database import *
+from source.funcs import *
 import jwt
 import datetime 
 import os

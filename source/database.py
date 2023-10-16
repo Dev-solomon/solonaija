@@ -1,9 +1,9 @@
 from sqlalchemy import create_engine, text   
 from flask import *
 from datetime import date
-from funcs import *
+from source.funcs import *
 from termcolor import colored 
-from app import app, bcrypt
+from app import bcrypt
 # ----------------------------------------------------------
 # Connection string For Cloud connection to Database
 # ----------------------------------------------------------
