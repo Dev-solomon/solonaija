@@ -82,8 +82,13 @@ def manage_user():
 @check_ifadmin
 def new_item():
     if request.method == 'POST': 
+        data = request.form 
         image = upload_image()
         video = upload_video()  
+        new_item = add_movie(data, image, video)
+        if new_item == True:
+            message = "New Movie Has Been Added"
+            return render_template('admin/add-item.html', message=message)
     return render_template('admin/add-item.html') 
 # Comments on users
 @app.route('/admin/comments')
@@ -99,7 +104,28 @@ def invalid():
 @app.route('/admin/catalog')
 @check_ifadmin
 def catalog():
+    movies = get_movies()
+    if movies != None:
+        return render_template('admin/catalog.html', movies=movies)
     return render_template('admin/catalog.html')
+# ----------------------------------------------------
+@app.route('/admin/<int:id>', methods=['POST','GET'])
+def change_status(id):     
+    change = change_stat(id)
+    if change == True:
+        movies = get_movies()
+        return render_template('admin/catalog.html', movies=movies) 
+@app.route('/lock/<int:id>', methods=['POST','GET'])
+def lock_status(id):     
+    change = lock_stat(id)
+    if change == True:
+        movies = get_movies()
+        return render_template('admin/catalog.html', movies=movies)
+@app.route('/admin/delete_movie/<int:id>', methods=["POST", 'GET'])
+def delete_item(id):
+    movie = delete_movie(id) 
+    movies = get_movies()
+    return render_template('admin/catalog.html', movies=movies, delete_mssg="Movie Has Been Deleted Successfully") 
 # change password
 @app.route('/admin/forgot')
 @check_ifadmin

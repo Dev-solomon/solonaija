@@ -54,22 +54,21 @@
 					</div>
 				</div>
 				<!-- end main title -->
+				{% if message is defined %}
+				<div style="background-color: white; color: black; padding: 10px;" class="m-auto">
+					 {{message}} 
+				</div>
+				{%endif %}
 
 				<!-- form -->
-				<div class="col-12">
+				<div class="col-12" style="margin-top: 10px;">
 					<form action="/admin/item" method="post" class="form" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-12 col-md-5 form__cover">
 								<div class="row">
-									<div class="col-12 col-sm-6 col-md-12">
-										<button class="btn mx-auto" style="color: white; margin-bottom: 10px; background-color: #2F80ED;border-radius: 5px; padding: 3px;">save image</button>
-									 <div class="form__img" >
-											{% if image_preview is defined %}
-												<!-- {{image_preview}} -->
-												<img src="{{image_preview}}"> 
-											{%else%}
+									<div class="col-12 col-sm-6 col-md-12"> 
+										 <div class="form__img" > 
 											<label for="form__img-upload">Upload cover (190 x 270)</label>
-											 {% endif %}
 											<input id="form__img-upload" name="cover" type="file"> 
 										</div>
 									</div>
@@ -373,11 +372,7 @@
 								</div>
 								<div class="col-12">
 									<div class="form__group">
-										<select class="js-example-basic-single" name id="quality">
-											<option value="movie">movie</option>
-											<option value="series">series</option>
-											<option value="tvshow">Tv-show</option>
-										</select>
+										<input type="text" class="form__input" name="genre" placeholder="Genre">
 									</div>
 								</div>
 							</div> 
