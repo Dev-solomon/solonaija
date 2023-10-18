@@ -10,7 +10,7 @@ from termcolor import colored
 
 
 app = Flask(__name__)  # '__main__'  
-CORS(app, support_credentials=True) 
+CORS(app, support_credentials=True)  
 bcrypt = Bcrypt(app) 
 
 

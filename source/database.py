@@ -3,7 +3,7 @@ from flask import *
 from datetime import date
 from source.funcs import *
 from termcolor import colored 
-from app import bcrypt
+from app import bcrypt, app
 # ----------------------------------------------------------
 # Connection string For Cloud connection to Database
 # ----------------------------------------------------------
