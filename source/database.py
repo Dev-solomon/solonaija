@@ -3,7 +3,7 @@ from flask import *
 from datetime import date
 from source.funcs import *
 from termcolor import colored 
-from app import bcrypt
+# from app import bcrypt
 # ----------------------------------------------------------
 # Connection string For Cloud connection to Database
 # ----------------------------------------------------------
@@ -25,7 +25,8 @@ def registration(data):
 
     conn.execute(query, 
                 dict(email=data['email'], 
-                password=bcrypt.generate_password_hash(data['password']).decode('utf-8'),
+                password=data['password'],
+                # password=bcrypt.generate_password_hash(data['password']).decode('utf-8'),
                 subscription=0, 
                 downloads=0,
                 date=date.today())
@@ -40,7 +41,8 @@ def login_user(data):
     
     # users = []
     for row in result.fetchall():  
-        if row._mapping['email'] == data['email'] and  bcrypt.check_password_hash(row._mapping['pass'], data['password']): 
+        if row._mapping['email'] == data['email'] and row._mapping['pass'] == data['password']: 
+        # if row._mapping['email'] == data['email'] and  bcrypt.check_password_hash(row._mapping['pass'], data['password']): 
           return data['email']
     if data['email'] == "ntiasolomon9@gmail.com" and data['password'] == "123":
         return 'admin'
