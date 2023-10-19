@@ -3,15 +3,14 @@ from source.database import *
 from source.funcs import *
 import jwt
 import datetime 
-import os
-from flask_bcrypt import Bcrypt
+import os 
 from flask_cors import CORS   
-from termcolor import colored 
+from termcolor import colored  
 
-
-app = Flask(__name__)  # '__main__'  
-CORS(app, support_credentials=True)  
-bcrypt = Bcrypt(app) 
+# ===================================|
+app = Flask(__name__)  # '__main__'  |
+CORS(app, support_credentials=True) #| 
+# ===================================|
 
 
 # The HomePage

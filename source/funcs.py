@@ -32,7 +32,7 @@ def set_cookies(token):
     resp = make_response(redirect(url_for('admin_home'))) 
     resp.set_cookie('token', str(token))
     return resp
-  resp = make_response(redirect(url_for('home_template'))) 
+  resp = make_response(redirect(url_for('movie_template'))) 
   resp.set_cookie('token', str(token))
   return resp
 # --------------------------------------------------
