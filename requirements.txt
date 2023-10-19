@@ -9,3 +9,4 @@ jwt
 flask_cors
 termcolor
 passlib
+Werkzeug
