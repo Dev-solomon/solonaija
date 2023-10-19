@@ -4,8 +4,8 @@ Flask==2.0.3
 python-dotenv==0.19.2
 gunicorn
 sqlalchemy
-pymysql
-flask-bcrypt
+pymysql 
 jwt
 flask_cors
 termcolor
+passlib
