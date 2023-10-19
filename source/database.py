@@ -40,8 +40,9 @@ def login_user(data):
     
     # users = []
     for row in result.fetchall():  
-        if row._mapping['email'] == data['email'] and sha256_crypt.verify(data['password'], row._mapping['pass']) == True: 
-          return data['email']
+        if row._mapping['email'] == data['email']:
+          if sha256_crypt.verify(data['password'], row._mapping['pass']):
+            return data['email']
     if data['email'] == "ntiasolomon9@gmail.com" and data['password'] == "123":
         return 'admin'
     return None
