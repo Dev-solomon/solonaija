@@ -25,7 +25,7 @@ def registration(data):
 
     conn.execute(query, 
                 dict(email=data['email'], 
-                password=sha256_crypt.hash(data['password']), 
+                password=str(sha256_crypt.hash(data['password'])), 
                 subscription=0, 
                 downloads=0,
                 date=date.today())
