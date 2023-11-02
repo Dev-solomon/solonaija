@@ -25,7 +25,7 @@ def registration(data):
 
     conn.execute(query, 
                 dict(email=data['email'], 
-                password=str(sha256_crypt.hash(data['password'])), 
+                password=sha256_crypt.hash(data['password']), 
                 subscription=0, 
                 downloads=0,
                 date=date.today())
@@ -42,7 +42,7 @@ def login_user(data):
     for row in result.fetchall():  
         if row._mapping['email'] == data['email']:
           if sha256_crypt.verify(data['password'], row._mapping['pass']):
-            return str(data['email'])
+            return data['email']
           else:
             return False
     if data['email'] == "ntiasolomon9@gmail.com" and data['password'] == "123":
