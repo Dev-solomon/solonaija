@@ -4,8 +4,10 @@ from source.funcs import *
 import jwt
 import datetime 
 import os 
+import sys
 from flask_cors import CORS   
 from termcolor import colored  
+
 
 # ===================================|
 app = Flask(__name__)  # '__main__'  |
@@ -34,11 +36,11 @@ def login():
         data = request.form
         if login_user(data) == data['email']:
             user = data['email']
-            token = jwt.encode({'user': user, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, os.getenv('SECRET_KEY'), algorithms=["HS256"])
+            token = jwt.encode({'user': user, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, os.getenv('SECRET_KEY'))
             return set_cookies(token)
         elif login_user(data) == 'admin':
             user = 'admin'
-            token = jwt.encode({'user': user, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, os.getenv('SECRET_KEY'), algorithms=["HS256"])
+            token = jwt.encode({'user': user, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, os.getenv('SECRET_KEY'))
             return set_cookies(token)
         return  render_template('admin/signin.html', message="Email Or Password Incorrect")
     else:
