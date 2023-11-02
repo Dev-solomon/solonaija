@@ -5,7 +5,7 @@ python-dotenv==0.19.2
 gunicorn
 sqlalchemy
 pymysql 
-jwt
+pyjwt
 flask_cors
 termcolor
 passlib
