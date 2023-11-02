@@ -17,7 +17,7 @@ def token_required(f):
       return render_template('admin/signin.html', message="Sorry! You're Not Authorized")
     
     try:
-      data = jwt.decode(token, os.getenv('SECRET_KEY'), algorithms=["HS256"])  
+      data = jwt.decode(token, 'solomon', algorithms=["HS256"])  
     except:
       return  render_template('admin/signin.html', message="Session Expired! Login")
     
@@ -28,7 +28,7 @@ def token_required(f):
 # Function for setting cookies 
 # ------------------------------------
 def set_cookies(token):
-  checked_token = jwt.decode(token, os.getenv('SECRET_KEY'), algorithms=["HS256"]) 
+  checked_token = jwt.decode(token, 'solomon', algorithms=["HS256"]) 
   if checked_token['user'] == 'admin':
     resp = make_response(redirect(url_for('admin_home'))) 
     resp.set_cookie('token', str(token))
@@ -50,7 +50,7 @@ def user_account():
     token = request.cookies.get('token') 
     
     try:
-      data = jwt.decode(token, os.getenv('SECRET_KEY'), algorithms=["HS256"]) 
+      data = jwt.decode(token, 'solomon', algorithms=["HS256"]) 
       return data
     except:
       return  render_template('admin/signin.html', message="oops! something went wrong")
@@ -88,12 +88,12 @@ def check_ifadmin(f):
     try:
       if url == 'GET':
         token = request.cookies.get('token')
-        data = jwt.decode(token, os.getenv('SECRET_KEY'), algorithms=["HS256"]) 
+        data = jwt.decode(token, 'solomon', algorithms=["HS256"]) 
     except:
       return render_template('admin/signin.html', message="SESSION EXPIRED! LOGIN")
     
     token = request.cookies.get('token')
-    data = jwt.decode(token, os.getenv('SECRET_KEY'), algorithms=["HS256"])    
+    data = jwt.decode(token, 'solomon', algorithms=["HS256"])    
     if data['user'] != 'admin':
       return render_template('admin/404.html', message="ACCESS DENIED!")
     
