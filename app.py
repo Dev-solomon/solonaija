@@ -37,6 +37,7 @@ def login():
         if login_user(data) == data['email']:
             user = data['email']
             token = jwt.encode({'user': user, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, os.getenv('SECRET_KEY'), 'HS256').decode('utf-8')
+            print(colored(token), 'red')
             return set_cookies(token)
         elif login_user(data) == 'admin':
             user = 'admin'
