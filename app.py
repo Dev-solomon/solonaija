@@ -36,13 +36,13 @@ def login():
         data = request.form
         if login_user(data) == data['email']:
             user = data['email']
-            token = jwt.encode({'user': user, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, 'solomon', 'HS256').decode('utf-8')
+            token = jwt.encode({'user': user, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, 'solomon', 'HS256')
             print(colored(token, 'red')) #os.getenv('SECRET_KEY')
             print(type(token))
             return set_cookies(token)
         elif login_user(data) == 'admin':
             user = 'admin'
-            token = jwt.encode({'user': user, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, 'solomon', 'HS256').decode('utf-8')
+            token = jwt.encode({'user': user, 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)}, 'solomon', 'HS256')
             return set_cookies(token)
         return  render_template('admin/signin.html', message="Email Or Password Incorrect")
     else:
