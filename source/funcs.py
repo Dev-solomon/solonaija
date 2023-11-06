@@ -40,7 +40,7 @@ def set_cookies(token):
 # Function for Deleting cookie and Logging User Out
 # --------------------------------------------------
 def del_cookies():
-    resp = make_response(render_template('admin/signin.html')) 
+    resp = make_response(redirect(url_for('login'))) 
     resp.delete_cookie('token')
     return resp
 # ------------------------------------------------------------
@@ -50,10 +50,10 @@ def user_account():
     token = request.cookies.get('token') 
     
     try:
-      data = jwt.decode(token, 'solomon', algorithms=["HS256"]) 
+      data = jwt.decode(token, 'solomon', algorithms=["HS256"])  
       return data
     except:
-      return  render_template('admin/signin.html', message="oops! something went wrong")
+      return  ''
 # ------------------------------------------------------------
 # Function for Uploading Images and videos
 # ------------------------------------------------------------
@@ -99,5 +99,6 @@ def check_ifadmin(f):
     
     return f(*args, **kwargs)  
   return decorated  
+  
   
   

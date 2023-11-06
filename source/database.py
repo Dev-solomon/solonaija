@@ -2,6 +2,7 @@ from sqlalchemy import create_engine, text
 from flask import *
 from datetime import date
 from source.funcs import *
+import sys
 from termcolor import colored  
 from passlib.hash import sha256_crypt
 # ----------------------------------------------------------
@@ -21,14 +22,15 @@ engine = create_engine(
 # --------------------------------------------------------------
 def registration(data):
   with engine.connect() as conn:
-    query = text("INSERT INTO users (email, pass, subscription, downloads, date) VALUES (:email, :password, :subscription,:downloads, :date)")
+    query = text("INSERT INTO users (email, pass, subscription, downloads, date, status) VALUES (:email, :password, :subscription,:downloads, :date, :status)")
 
     conn.execute(query, 
                 dict(email=data['email'], 
                 password=sha256_crypt.hash(data['password']), 
                 subscription=0, 
                 downloads=0,
-                date=date.today())
+                date=date.today(),
+                status=1)
                 ) 
     print('{} Sucessfully Registered'.format(data['email']))
 #------------------------------------------ 
@@ -81,7 +83,7 @@ def get_movies():
     else: 
       return movies
 # ------------------------------------------ 
-# change Movie  status
+# change Movie  status TO VIEWABLE
 # -----------------------------------------
 def change_stat(id):
   with engine.connect() as conn:
@@ -92,7 +94,9 @@ def change_stat(id):
       return True
     except:
       print('Nothing Done to the database')
-# ---------------------------------------------
+# ----------------------------------------
+# LOCK MOVIE FROM BEING VIEWED
+# ----------------------------------------
 def lock_stat(id):
   with engine.connect() as conn:
     try: 
@@ -102,12 +106,147 @@ def lock_stat(id):
       return True
     except:
       print('Nothing Done to the database')
-# ------------------------------------------ DELETE MOVIE FROM DATABASE USING ID
+# ----------------------------------------
+# DELETE MOVIE FROM DATABASE USING ID
+# ----------------------------------------
 def delete_movie(id):
   with engine.connect() as conn:
     try: 
       update_status = conn.execute(text("DELETE FROM movies WHERE id =:id"),
                                    dict(id=id)) 
+      return True
     except:
       print('Nothing Done to the database')
-    
+#------------------------------------------ 
+# Get all users from the database
+# -----------------------------------------
+def get_users():
+  with engine.connect() as conn:
+    query = text("SELECT * FROM users")
+    users = conn.execute(query).fetchall()
+    if len(users) == 0:
+      return None
+    else: 
+      return users
+# ------------------------------------------ 
+# CHANGE THE STATUS OF THE USER TO ACTIVE
+# -----------------------------------------
+def change_user_stat(id):
+  with engine.connect() as conn:
+    try: 
+      update_status = conn.execute(text("UPDATE users SET status = :status WHERE id = :id"),
+                                  dict(status=1,
+                                       id=id))
+      return True
+    except:
+      print(colored('User status not been activated', 'red'))
+# -----------------------------------------------
+# LOCK USER | DISABLE THE USER FROM BEING ACTIVE
+# -----------------------------------------------
+def lock_user_stat(id):
+  with engine.connect() as conn:
+    try: 
+      update_status = conn.execute(text("UPDATE users SET status = :status WHERE id = :id"),
+                                  dict(status=0,
+                                       id=id))
+      return True
+    except:
+      print(colored('User status not deactivated', 'red'))
+# ----------------------------------------
+# DELETE USER FROM DATABASE USING ID
+# ----------------------------------------
+def deleteuser(id):
+  with engine.connect() as conn:
+    try: 
+      user = conn.execute(text("DELETE FROM users WHERE id =:id"),
+                                   dict(id=id)) 
+      return True
+    except:
+      print(colored("Attempt to delete user failed!", 'red'))
+#------------------------------------------ 
+# GET COMMENTS FROM THE DATABASE
+# -----------------------------------------
+def get_comments():
+  with engine.connect() as conn:
+    query = text("SELECT * FROM comments")
+    comments = conn.execute(query).fetchall()
+    if len(comments) == 0:
+      return None
+    else: 
+      return comments
+# ------------------------------------------ 
+# CHANGE THE STATUS OF THE COMMENT TO ACTIVE
+# -----------------------------------------
+def comment_stat(id):
+  with engine.connect() as conn:
+    try: 
+      update_status = conn.execute(text("UPDATE comments SET status = :status WHERE id = :id"),
+                                  dict(status=1,
+                                       id=id))
+      return True
+    except:
+      print(colored('Comment not activated', 'red'))
+# --------------------------------------------------
+# LOCK USER | DISABLE THE COMMENT FROM BEING ACTIVE
+# --------------------------------------------------
+def lock_comment(id):
+  with engine.connect() as conn:
+    try: 
+      update_status = conn.execute(text("UPDATE comments SET status = :status WHERE id = :id"),
+                                  dict(status=0,
+                                       id=id))
+      return True
+    except:
+      print(colored('Comment not deactivated', 'red'))
+# ----------------------------------------
+# DELETE COMMENT FROM DATABASE USING ID
+# ----------------------------------------
+def delete_comment(id):
+  with engine.connect() as conn:
+    try: 
+      comment = conn.execute(text("DELETE FROM comments WHERE id =:id"),
+                                   dict(id=id)) 
+      return True
+    except:
+      print(colored("Attempt to delete user failed!", 'red'))
+# ----------------------------------------
+# USER CAN WRITE A COMMENT
+# ----------------------------------------
+def write_comment(data):
+  with engine.connect() as conn:
+    try:
+      user = user_account()['user'] #The current user of the account
+      query = text("INSERT INTO comments (author, comments, date, status) VALUES (:author, :comments, :date, :status)")
+      make_comment = conn.execute(query, dict(
+        author=user,
+        comments=data['comm'],
+        date=date.today(),
+        status=0
+      ))
+      print("Comment made sucessfully")
+      return True
+    except:
+      print(colored("something wrong somewhere", 'yellow'))
+      return False
+#------------------------------------------ 
+# GET COMMENTS TO DISPLAY FOR USERS
+# -----------------------------------------
+def get_user_comments():
+  with engine.connect() as conn:
+    query = text("SELECT * FROM comments WHERE status = 1 LIMIT 4")
+    comments = conn.execute(query).fetchall()
+    if len(comments) == 0:
+      return None
+    else: 
+      return comments
+#------------------------------------------ 
+# FETCH FOR A SINGLE MOVIE
+# -----------------------------------------
+def get_single_movie(ID):
+  with engine.connect() as conn:
+    query = text("SELECT * FROM movies WHERE id = :id")
+    single_movie = conn.execute(query, dict(id=ID)).fetchall()
+    if len(single_movie) == 0:
+      return None
+    else: 
+      return single_movie[0]

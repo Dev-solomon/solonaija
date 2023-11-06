@@ -427,8 +427,7 @@ body::-webkit-scrollbar-thumb {
   margin-bottom: 15px;
   position: relative;
 }
-.sidebar__menu li:before {
-  content: '';
+.sidebar__menu li:before { 
   position: absolute;
   display: block;
   width: 4px;
@@ -612,7 +611,7 @@ body::-webkit-scrollbar-thumb {
   border: none;
 }
 .main__table tbody tr {
-  border-bottom: 10px solid #131720;
+  border-bottom: 10px solid black;
 }
 .main__table tbody td {
   padding: 0;

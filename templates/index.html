@@ -36,38 +36,23 @@
                   <span class="navbar-menu-icon navbar-menu-icon--bottom"></span>
                 </div>
               </a>
-              <a href="/" class="navbar-brand">
-                <img src="../static/images/logo.png" class="img-fluid logo" alt="" /> 
-              </a>
+              {% include 'logo.html' %}
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="menu-main-menu-container"> 
                   <ul id="top-menu" class="navbar-nav ml-auto">
                     <li class="menu-item"><a href="#">Home</a></li>
                     <li class="menu-item"><a href="/movies">Movies</a></li>
-                    <li class="menu-item"><a href="/view">Shows</a></li>
+                    <li class="menu-item"><a href="/login">Login</a></li>
                     <li class="menu-item">
-                      <a href="#">Contact Us</a>
+                      <a href="#">More</a>
                       <ul class="sub-menu">
+                        <li class="menu-item"><a href="/signup">Sign Up</a></li>
                         <li class="menu-item"><a href="#">About Us</a></li>
                         <li class="menu-item"><a href="#">Contact</a></li>
                         <li class="menu-item"><a href="#">FAQ</a></li>
                         <li class="menu-item">
                           <a href="#">Privacy-Policy</a>
-                        </li>
-                        <li class="menu-item">
-                          <a href="#">Pricing</a>
-                          <ul class="sub-menu">
-                            <li class="menu-item">
-                              <a href="#">Gold Membership</a>
-                            </li>
-                            <li class="menu-item">
-                              <a href="#">Silver Membership</a>
-                            </li>
-                            <li class="menu-item">
-                              <a href="#">Bronze Membership</a>
-                            </li>
-                          </ul>
-                        </li>
+                        </li> 
                       </ul>
                     </li>
                   </ul>
@@ -84,6 +69,18 @@
                         <div class="iq-sub-dropdown iq-user-dropdown">
                           <div class="iq-card shadow-none m-0">
                             <div class="iq-card-body p-0 pl-3 pr-3"> 
+                              {% if user is defined %}
+                                <a href="#" class="iq-sub-card setting-dropdown">
+                                  <div class="media align-items-center">
+                                    <div class="right-icon">
+                                      <i class="fa fa-user-plus text-primary"></i>
+                                    </div>
+                                    <div class="media-body ml-3">
+                                      <h6 class="mb-0">{{user.user}}</h6>
+                                    </div>
+                                  </div>
+                                </a>
+                              {% endif %}
                               <a href="#" class="iq-sub-card setting-dropdown">
                                 <div class="media align-items-center">
                                   <div class="right-icon">
@@ -140,8 +137,12 @@
                   </li>
                   
                   <li class="nav-item nav-icon">
-                    <a class="iq-user-dropdown search-toggle d-flex align-items-center p-0">
-                      <span><i class="fa fa-dot-circle-o" style="color: green !important; margin-right: 4px;"></i>mike@gmail.com</span>
+                    <a class="iq-user-dropdown search-toggle d-flex align-items-center p-0"> 
+                        {% if user is defined %}
+                        <span><i class="fa fa-user-plus" style="color: green !important; margin-right: 4px;"></i>
+                         {{user.user}} 
+                        {% endif %}
+                      </span>
                     </a>
                     <div class="iq-sub-dropdown iq-user-dropdown">
                       <div class="iq-card shadow-none m-0">

@@ -61,7 +61,7 @@
     <div class="header__bottom">
         <div class="container-fluid p-0">
             <nav class="navbar navbar-expand-xl align-items-center p-0">
-                <a class="site-logo site-title" href="https://script.viserlab.com/playlab/demo"><img src="../static/images/logo.png" alt="site-logo"><span class="logo-icon"><i class="flaticon-fire"></i></span></a>
+                <a class="site-logo site-title" href="/"><img src="../static/images/logo.png" alt="site-logo"><span class="logo-icon"><i class="flaticon-fire"></i></span></a>
                 <button class="navbar-toggler ml-auto" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="menu-toggle"></span>
                 </button>
@@ -69,25 +69,37 @@
                     <ul class="navbar-nav main-menu ms-xl-5 mx-auto">
                         <li><a href="/">Home</a></li>
                                                                                     <li class="menu_has_children">
-                                    <a href="/movies">Movies</a>
-                                    <ul class="sub-menu">
-                                                                                    <li><a href="">English</a></li>
-                                                                                    <li><a href="">Korean</a></li>
-                                                                                    <li><a href="">Hindi</a></li>
-                                                                            </ul>
+                                    <a href="/movies">Movies</a> 
                                 </li>  
                                                                             <li><a href="../live-tv.html">Blog News</a></li>
                                                     <li><a href="../contact.html">Contact</a></li>
                                                     <li class="mx-auto my-auto d-none d-sm-none d-md-none d-lg-block"><input placeholder="search movie of choice..." style="width: 350px; border: 1px solid #6499E9;" value=""><li>
                                             </ul>
                     <div class="nav-right d-flex ml-auto flex-wrap gap-4"> 
-                                                    <a href="../user/dashboard.html"><i class="las la-sign-in-alt"></i> Login</a>
-                            <a href="../user/register.html"><i class="las la-user-plus"></i> Registration</a>
-                                                                                                                    <!-- <select class="language-select langSel" id="langSel">
-                                                                            <option value="en"  selected >English</option>
-                                                                            <option value="hi" >Hindi</option>
-                                                                            <option value="bn" >Bangla</option>
-                                                                    </select> -->
+                        {% if user is defined %}
+                        <a href="/logout_user"><i class="las la-sign-in-alt"></i>
+                        Logout
+                        </a>
+                        {% else %}
+                        <a href="/login"><i class="las la-sign-in-alt"></i>
+                            Login
+                        </a>
+                        {% endif %}
+                                                    
+                                                    
+                         
+                            {% if user is defined %}
+                            <i class="las la-user-plus" style="color: rgb(2, 190, 2);"> {{user.user}}</i>
+                            {% else %}
+                            <a href="/signup"><i class="las la-user-plus"></i>
+                                Registeration
+                            </a>
+                            {% endif %}                                  
+                            <!-- <select class="language-select langSel" id="langSel">
+                                    <option value="en"  selected >English</option>
+                                    <option value="hi" >Hindi</option>
+                                    <option value="bn" >Bangla</option>
+                            </select> -->
                                                     </div>
                     </div>
                 </nav>
@@ -99,108 +111,29 @@
 </section>    
     <section class="pt-80 pb-80">
 	<div class="container-fluid">
-        <div class="row mb-none-30 ajaxLoad">
-        	        	<div class="col-xxl-2 col-md-3 col-4 col-xs-6 mb-30">
-        		<div class="movie-card  "  data-text="Free" >
-        			<div class="movie-card__thumb thumb__2">
-        				<img src="../static/assets/images/item/portrait/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg" alt="image">
-        				<a href="../watch-video/1208.html" class="icon"><i class="fas fa-play"></i></a>
-        			</div>
-        		</div><!-- movie-card end -->
-        	</div>
-                            	<div class="col-xxl-2 col-md-3 col-4 col-xs-6 mb-30">
-        		<div class="movie-card  "  data-text="Free" >
-        			<div class="movie-card__thumb thumb__2">
-        				<img src="../static/assets/images/item/portrait/keGfSvCmYj7CvdRx36OdVrAEibE.jpg" alt="image">
-        				<a href="../watch-video/1207.html" class="icon"><i class="fas fa-play"></i></a>
-        			</div>
-        		</div><!-- movie-card end -->
-        	</div>
-                            	<div class="col-xxl-2 col-md-3 col-4 col-xs-6 mb-30">
-        		<div class="movie-card  "  data-text="Free" >
-        			<div class="movie-card__thumb thumb__2">
-        				<img src="../static/assets/images/item/portrait/2022/07/06/62c58234611511657111092.jpg" alt="image">
-        				<a href="../watch-video/1206.html" class="icon"><i class="fas fa-play"></i></a>
-        			</div>
-        		</div><!-- movie-card end -->
-        	</div>
-                            	<div class="col-xxl-2 col-md-3 col-4 col-xs-6 mb-30">
-        		<div class="movie-card  "  data-text="Free" >
-        			<div class="movie-card__thumb thumb__2">
-        				<img src="../static/assets/images/item/portrait/2022/07/06/62c581fe8b61f1657111038.jpg" alt="image">
-        				<a href="../watch-video/1205.html" class="icon"><i class="fas fa-play"></i></a>
-        			</div>
-        		</div><!-- movie-card end -->
-        	</div>
-                            	<div class="col-xxl-2 col-md-3 col-4 col-xs-6 mb-30">
-        		<div class="movie-card  "  data-text="Free" >
-        			<div class="movie-card__thumb thumb__2">
-        				<img src="../static/assets/images/item/portrait/2022/07/06/62c58151eb42d1657110865.jpg" alt="image">
-        				<a href="../watch-video/1203.html" class="icon"><i class="fas fa-play"></i></a>
-        			</div>
-        		</div><!-- movie-card end -->
-        	</div>
-                            	<div class="col-xxl-2 col-md-3 col-4 col-xs-6 mb-30">
-        		<div class="movie-card  "  data-text="Free" >
-        			<div class="movie-card__thumb thumb__2">
-        				<img src="../static/assets/images/item/portrait/2022/07/05/62c459c5ec4c01657035205.jpg" alt="image">
-        				<a href="../watch-video/24.html" class="icon"><i class="fas fa-play"></i></a>
-        			</div>
-        		</div><!-- movie-card end -->
-        	</div>
-                            	<div class="col-xxl-2 col-md-3 col-4 col-xs-6 mb-30">
-        		<div class="movie-card  "  data-text="Free" >
-        			<div class="movie-card__thumb thumb__2">
-        				<img src="../static/assets/images/item/portrait/2022/07/05/62c456aaa0a121657034410.jpg" alt="image">
-        				<a href="../watch-video/23.html" class="icon"><i class="fas fa-play"></i></a>
-        			</div>
-        		</div><!-- movie-card end -->
-        	</div>
-                            	<div class="col-xxl-2 col-md-3 col-4 col-xs-6 mb-30">
-        		<div class="movie-card  "  data-text="Free" >
-        			<div class="movie-card__thumb thumb__2">
-        				<img src="../static/assets/images/item/portrait/2022/07/05/62c4542f3889d1657033775.jpg" alt="image">
-        				<a href="../watch-video/22.html" class="icon"><i class="fas fa-play"></i></a>
-        			</div>
-        		</div><!-- movie-card end -->
-        	</div>
-                            	<div class="col-xxl-2 col-md-3 col-4 col-xs-6 mb-30">
-        		<div class="movie-card  "  data-text="Free" >
-        			<div class="movie-card__thumb thumb__2">
-        				<img src="../static/assets/images/item/portrait/2022/07/05/62c452706c3731657033328.jpg" alt="image">
-        				<a href="../watch-video/21.html" class="icon"><i class="fas fa-play"></i></a>
-        			</div>
-        		</div><!-- movie-card end -->
-        	</div>
-                            	<div class="col-xxl-2 col-md-3 col-4 col-xs-6 mb-30">
-        		<div class="movie-card  "  data-text="Free" >
-        			<div class="movie-card__thumb thumb__2">
-        				<img src="../static/assets/images/item/portrait/2022/07/05/62c450c849c411657032904.jpg" alt="image">
-        				<a href="../watch-video/20.html" class="icon"><i class="fas fa-play"></i></a>
-        			</div>
-        		</div><!-- movie-card end -->
-        	</div>
-                            	<div class="col-xxl-2 col-md-3 col-4 col-xs-6 mb-30">
-        		<div class="movie-card  "  data-text="Free" >
-        			<div class="movie-card__thumb thumb__2">
-        				<img src="../static/assets/images/item/portrait/2022/07/05/62c44f895346c1657032585.jpg" alt="image">
-        				<a href="../watch-video/19.html" class="icon"><i class="fas fa-play"></i></a>
-        			</div>
-        		</div><!-- movie-card end -->
-        	</div>
-                            	<div class="col-xxl-2 col-md-3 col-4 col-xs-6 mb-30">
-        		<div class="movie-card  "  data-text="Free" >
-        			<div class="movie-card__thumb thumb__2">
-        				<img src="../static/assets/images/item/portrait/2022/07/05/62c44d1b83e121657031963.jpg" alt="image">
-        				<a href="../watch-video/18.html" class="icon"><i class="fas fa-play"></i></a>
-        			</div>
-        		</div><!-- movie-card end -->
-        	</div>
+        <div class="row mb-none-30 ajaxLoad">   
+            {% if movies is defined%} 
+            {% for movie in movies %}
+            {% if movie.status != 0 %}
+            <div class="col-xxl-2 col-md-3 col-4 col-xs-6 mb-30"> 
+                    <div class="movie-card"  data-text="Watch" >
+                        <div class="movie-card__thumb thumb__2">
+                            <img src="../static/upload/{{movie.image}}" alt="image">
+                            <a href="/view/{{movie.id}}" class="icon"><i class="fas fa-play"></i></a>
+                        </div>
+                    </div><!-- movie-card end -->
+                </div>
+                {% endif %}
+                    {% endfor %}
+                {%else%} 
+        	
+            <div style="margin: auto; margin-top: 70px; width: 100%; color: white;">SORRY, MOVIES UNAVAILABLE AT THE MOMENT</div>
+                {% endif %}
                     <span class="data_id" data-id="18"></span>
           <span class="category_id" data-category_id=""></span>
           <span class="subcategory_id" data-subcategory_id="1"></span>
           <span class="search" data-search=""></span>
-                            </div>
+             </div>
       </div>
 </section>
  
